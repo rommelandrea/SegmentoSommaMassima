@@ -1,8 +1,7 @@
 /* 
  * File:   ssm.c
- * Author: rommel
- *
- * Created on October 17, 2011, 4:05 PM
+ * Author: Andrea Romanello     
+ * 
  */
 
 #include <stdio.h>
@@ -11,6 +10,17 @@
 /*
  * 
  */
+struct SegmentoStruct{
+    int somma;
+    int inizio;
+    int fine;
+};
+
+typedef struct SegmentoStruct* Segmento;
+
+Segmento nuovoSegmento(int, int, int);
+Segmento ssm(int [], int);
+
 int main(int argc, char** argv) {
 
     return (EXIT_SUCCESS);
