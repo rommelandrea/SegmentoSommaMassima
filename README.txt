@@ -1,0 +1,1 @@
+segmento somma massima
