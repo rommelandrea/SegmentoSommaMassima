@@ -8,11 +8,8 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define MIN -10
-#define MAX 10
-
 /*
- * 
+ * Struttura per immagazzinare la sequenza di somme 
  */
 struct SegmentoStruct {
     int somma;
