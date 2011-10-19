@@ -2,6 +2,7 @@
  * File:   ssm.c
  * Author: Andrea Romanello     
  * 
+ * Esercitazione 3 parte 1
  */
 
 #include <stdio.h>
