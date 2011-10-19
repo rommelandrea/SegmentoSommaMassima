@@ -78,28 +78,65 @@ int maxPeriodoGelo(int a[], int length) {
     return max;
 }
 
+/**
+ * somma massima degli elementi dell'array
+ * @param a array
+ * @param length lunghezza array
+ * @return somma massima
+ */
 int sm(int a[], int length){
     int somma, max, i, j;
+    max = somma = a[0];
     
     for(i=0; i<length; i++){
-        somma = 0;
+        somma = a[i];
+        
         for(j=i; j<length; j++){
-            somma = somma + a[j];
+            if(i!=j)
+                somma = somma + a[j];
+            
             if(somma>max){
                 max = somma;
             }
         }
     }
-    
+    return max;
 }
  
-Segmento nuovoSegmento(int somma, int inizio, int fine){
+/**
+ * crea un segmento assegnando alle variabili la somma l'indice dell'inizio
+ * e della fine
+ * @param sm somma
+ * @param i inizio
+ * @param f fine
+ * @return segmento creato
+ */
+Segmento nuovoSegmento(int sm, int i, int f){
+    Segmento s;
     
+    if(s = malloc(sizeof(Segmento))){
+        exit(EXIT_FAILURE);
+    }
+    s->somma = sm;
+    s->inizio = i;
+    s->fine = f;
+    
+    return s;
 }
 
+/**
+ * questo metodo restituisce il segmento di somma massima
+ * @param a array
+ * @param length lunghezza array
+ * @return segmento di somma massima
+ */
 Segmento ssm(int a[], int length){
+    Segmento s;
+    int somma, i, j;
+    somma = a[0];
     
-    return segmento
+    s = nuovoSegmento(somma, i, j);
+    return s;
 }
 
 /**
