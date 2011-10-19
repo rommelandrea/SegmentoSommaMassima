@@ -78,6 +78,30 @@ int maxPeriodoGelo(int a[], int length) {
     return max;
 }
 
+int sm(int a[], int length){
+    int somma, max, i, j;
+    
+    for(i=0; i<length; i++){
+        somma = 0;
+        for(j=i; j<length; j++){
+            somma = somma + a[j];
+            if(somma>max){
+                max = somma;
+            }
+        }
+    }
+    
+}
+ 
+Segmento nuovoSegmento(int somma, int inizio, int fine){
+    
+}
+
+Segmento ssm(int a[], int length){
+    
+    return segmento
+}
+
 /**
  * main del programma
  * @param argc
