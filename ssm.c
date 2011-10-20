@@ -52,7 +52,7 @@ void print(int a[], int length) {
     int i;
     printf("stampo l'array\n");
     for (i = 0; i < length; i++) {
-        printf("%d-->", a[i]);
+        printf("%d--> ", a[i]);
     }
     printf("\n");
 }
@@ -92,10 +92,9 @@ int sm(int a[], int length) {
     for (i = 0; i < length; i++) {
         somma = a[i];
 
-        for (j = i; j < length; j++) {
-            if (i != j)
-                somma = somma + a[j];
-
+        for (j = i+1; j < length; j++) {
+            somma = somma + a[j];
+            
             if (somma > max) {
                 max = somma;
             }
@@ -115,9 +114,11 @@ int sm(int a[], int length) {
 Segmento nuovoSegmento(int sm, int i, int f) {
     Segmento s;
 
-    if (s = malloc(sizeof (Segmento))) {
+    if (!(s = malloc(sizeof(Segmento)))){
+        printf("\nerrore sulla malloc\n");
         exit(EXIT_FAILURE);
     }
+    
     s->somma = sm;
     s->inizio = i;
     s->fine = f;
@@ -134,9 +135,10 @@ Segmento nuovoSegmento(int sm, int i, int f) {
 Segmento ssm(int a[], int length) {
     Segmento s;
     int somma, inizio, fine, i, max;
+    inizio = fine = 0;
     somma = max = a[0];
 
-    for (i = 0; i < length; i++) {
+    for (i = 1; i < length; i++) {
         if (somma > 0) {
             somma += a[i];
 
@@ -161,16 +163,17 @@ Segmento ssm(int a[], int length) {
  * @return 
  */
 int main(int argc, char** argv) {
-    int length, periodo;
+    int length, periodo, somma;
+    Segmento s = NULL;
     length = 10;
+    
+    int b[5];
+    b[0]=-5; b[1]=-3; b[2]=8; b[3]=-2; b[4]=6;
 
     int min = -10;
     int max = 10;
 
     int a[length];
-
-    printf("stampo min + max ");
-    printf("%d\n", max + min);
 
     printf("entro in riempi casuale\n");
     riempiArrayCasuale(a, length, min, max);
@@ -178,8 +181,14 @@ int main(int argc, char** argv) {
     print(a, length);
 
     periodo = maxPeriodoGelo(a, length);
-
     printf("\n\nil max periodo di gelo e' %d", periodo);
+    
+    somma = sm(b, 5);
+    printf("\n\nla somma massima è %d", somma);
+    
+    s = ssm(b, 5);
+    printf("\n\nil segmento di somma massima inizia all'indice %d e finisce all'indice %d"
+            "\n la somma è %d", s->inizio, s->fine, s->somma);
 
     return (EXIT_SUCCESS);
 }
